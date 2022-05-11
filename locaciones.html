@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Diseño y nuevos medios" />
+        <!--Vamos a buscar el CSS de Bootstrap-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+        <!--Podemos hacer algunos ajustes a sus CSS variables -->
+        <style>
+            :root {
+                --bs-body-color: #fff;
+                --bs-body-bg: #111;
+            }
+        </style>
+        <!--cuando usamos LeafLeft tenemos que agregar dos cosas más-->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="" />
+        <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
+        <title>Remake &#127909;</title>
+    </head>
+    <body>
+        <div class="container fixed-top">
+            <nav class="d-flex justify-content-between py-3"><a href="index.html">Portada</a> <a href="peliculas.html">Películas</a> <a href="locaciones.html" class="fw-bold">Locaciones</a> <a href="ganancias.html">Ganancias</a></nav>
+        </div>
+        <main class="container">
+            <div class="row" style="min-height: 90vh;">
+                <div id="mapa" style="width: 80%; height: 60vh;" class="m-auto">
+                    <!--acá se mete el mapa-->
+                </div>
+            </div>
+        </main>
+        <div class="container fixed-bottom">
+            <footer class="d-flex justify-content-between py-3">
+                <div>Dusanka Valle</div>
+                <div>DNO037</div>
+            </footer>
+        </div>
+<script>
+        var miMapa = L.map("mapa").setView([56.164258655149595, -3.09484551751558], 5);
+        L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw", {
+            maxZoom: 18,
+            id: "mapbox/dark-v10",
+            tileSize: 512,
+            zoomOffset: -1,
+          }).addTo(miMapa);
+          L.marker([56.876316786609145,-5.43173745352432]).addTo(miMapa).bindPopup("<b>En Viaducto de Glenfinnan</b>, se grabó Harry Potter.");
+          L.marker([256.739310499332845,-5.089353909035283]).addTo(miMapa).bindPopup("<b>En River Coe</b>, se grabó más Harry Potter.");
+          L.marker([51.66040918609719,-5.065273628983859]).addTo(miMapa).bindPopup("<b>En Freshwater West</b>, se grabó Harry Potter.");
+          L.marker([54.77335046244417,-1.5763706437519127]).addTo(miMapa).bindPopup("<b>En Catedral de Durham,</b>. se grabo Harry Potter.");
+          L.marker([51.754192527569444,-1.254117103372992]).addTo(miMapa).bindPopup("<b>En Biblioteca Bodleiana,</b>. se grabo Harry Potter.");
+          L.marker([55.41870189300133,-1.70612903553861837]).addTo(miMapa).bindPopup("<b>En Castillo de Alnwick,</b>. se grabo Harry Potter.");
+          L.marker([51.512846103402104,-0.08360400338077001]).addTo(miMapa).bindPopup("<b>En Mercado de Leadenhall</b>, se grabó Harry Potter.");
+          L.marker([51.53189709893655,-0.12350578803721841]).addTo(miMapa).bindPopup("<b>En Estación de King's Cross</b>, se grabó Harry Potter.");
+          L.marker([51.693109090263064, -0.4172275168677481]).addTo(miMapa).bindPopup("<b>En Estudio Warner Bros</b>, se grabó Harry Potter.");
+        </script>
+        <script>
+            //un script cortito para ponerle una clase de bootstrap a todo vínculo
+            document.querySelectorAll("a").forEach((a) => a.classList.add("link-light"));
+        </script>
+    </body>
+</html>
